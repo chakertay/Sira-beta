@@ -1,14 +1,15 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Mic, FileText, PiggyBank, Eye, Share2, CheckCircle, ArrowRight, Sparkles, Brain, Users } from "lucide-react"
+import { Mic, Share2, CheckCircle, ArrowRight, Sparkles, Brain, Users } from "lucide-react"
 
 export default function SiraLanding() {
   const [isListening, setIsListening] = useState(false)
   const [currentAgent, setCurrentAgent] = useState<string | null>(null)
+  const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({})
 
   const agents = [
     {
@@ -16,13 +17,13 @@ export default function SiraLanding() {
       name: "SIRA - EMPLOI",
       title: "Analyse de Carrière Intelligente",
       description: "Un agent IA dédié à l'optimisation de votre parcours professionnel",
-      icon: FileText,
+      videoUrl: "/emploi.mp4?height=120&width=120",
       color: "from-emerald-500 to-teal-600",
       features: [
         "Analyse complète de votre CV",
         "Questions personnalisées sur votre parcours",
         "Identification des points forts et lacunes",
-        "bilan professionnel instantané",
+        "Rapport d'évaluation détaillé",
       ],
       link : "https://ai-gen-qq48.onrender.com"
     },
@@ -31,12 +32,12 @@ export default function SiraLanding() {
       name: "SIRA - RETRAITE",
       title: "Planification Retraite Personnalisée",
       description: "Un agent IA spécialisé dans la préparation de votre avenir financier",
-      icon: PiggyBank,
+      videoUrl: "/retraite.mp4?height=120&width=120",
       color: "from-violet-500 to-purple-600",
       features: [
         "Analyse de votre fiche de paie",
         "Évaluation de vos objectifs d'épargne",
-        "Bilan de retraite personnalisé instantané",
+        "Bilan de retraite personnalisé",
         "Recommandations d'investissement",
       ],
       link : "https://agent-3n6a.onrender.com"
@@ -46,7 +47,7 @@ export default function SiraLanding() {
       name: "SIRA - GLOBAL",
       title: "Assistant Visuel Temps Réel",
       description: "Un agent IA pour l'assistance contextuelle instantanée",
-      icon: Eye,
+      videoUrl: "/global.mp4?height=120&width=120",
       color: "from-orange-500 to-red-500",
       features: [
         "Partage d'écran en temps réel",
@@ -65,6 +66,30 @@ export default function SiraLanding() {
   const selectAgent = (agentId: string) => {
     setCurrentAgent(agentId)
     setIsListening(true)
+  }
+
+  const handleVideoHover = async (agentId: string, isHovering: boolean) => {
+    const videoElement = videoRefs.current[agentId]
+    if (!videoElement) return
+
+    try {
+      if (isHovering) {
+        videoElement.currentTime = 0
+        const playPromise = videoElement.play()
+        if (playPromise !== undefined) {
+          await playPromise
+        }
+      } else {
+        // Check if video is not paused before trying to pause
+        if (!videoElement.paused) {
+          videoElement.pause()
+        }
+        videoElement.currentTime = 0
+      }
+    } catch (error) {
+      // Silently handle the error - this is expected behavior when hovering quickly
+      console.debug("Video play/pause interrupted:", error)
+    }
   }
 
   return (
@@ -135,7 +160,6 @@ export default function SiraLanding() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {agents.map((agent, index) => {
-              const IconComponent = agent.icon
               return (
                 <Card
                   key={agent.id}
@@ -144,9 +168,29 @@ export default function SiraLanding() {
                   <div className={`h-2 bg-gradient-to-r ${agent.color}`} />
                   <CardHeader className="text-center pb-4">
                     <div
-                      className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${agent.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                      className={`w-48 h-32 mx-auto mb-4 rounded-lg overflow-hidden group-hover:scale-105 transition-transform duration-300`}
+                      onMouseEnter={() => handleVideoHover(agent.id, true)}
+                      onMouseLeave={() => handleVideoHover(agent.id, false)}
                     >
-                      <IconComponent className="w-8 h-8 text-white" />
+                      <video
+                        ref={(el) => {
+                          videoRefs.current[agent.id] = el
+                        }}
+                        className="w-full h-full object-cover rounded-lg"
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        poster={agent.videoUrl}
+                      >
+                        <source src={agent.videoUrl} type="video/mp4" />
+                        {/* Fallback image if video fails to load */}
+                        <img
+                          src={agent.videoUrl || "/placeholder.svg"}
+                          alt={`${agent.name} animation`}
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </video>
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900 mb-2">{agent.name}</CardTitle>
                     <CardDescription className="text-lg font-semibold text-gray-700">{agent.title}</CardDescription>
@@ -161,15 +205,13 @@ export default function SiraLanding() {
                         </li>
                       ))}
                     </ul>
-                    
                     <Button
                       className={`w-full bg-gradient-to-r ${agent.color} hover:opacity-90 text-white`}
-                      onClick={() => window.open(agent.link , "_blank")}
+                      onClick={() => window.open(agent.link, "_blank")}
                     >
                       <Mic className="mr-2 w-4 h-4" />
                       Parler avec {agent.name.split(" - ")[1]}
                     </Button>
-                    
                   </CardContent>
                 </Card>
               )
@@ -191,7 +233,7 @@ export default function SiraLanding() {
               <Button
                 size="lg"
                 className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-3 text-lg"
-                onClick={() => selectAgent("emploi")}
+                onClick={() => window.open("https://www.google.com/", "_blank")}
               >
                 <Users className="mr-2 w-5 h-5" />
                 Commencer avec SIRA
@@ -242,10 +284,11 @@ export default function SiraLanding() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 SIRA. Tous droits réservés. Plateforme d'intelligence artificielle.</p>
+            <p>&copy; 2024 SIRA. Tous droits réservés. Plateforme d'intelligence artificielle.</p>
           </div>
         </div>
       </footer>
     </div>
   )
 }
+

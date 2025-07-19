@@ -17,7 +17,7 @@ export default function SiraLanding() {
       name: "SIRA - EMPLOI",
       title: "Analyse de Carrière Intelligente",
       description: "Un agent IA dédié à l'optimisation de votre parcours professionnel",
-      videoUrl: "/emploi.mp4?height=120&width=120",
+      videoUrl: "/emploi.mp4?height=400&width=300",
       color: "from-emerald-500 to-teal-600",
       features: [
         "Analyse complète de votre CV",
@@ -32,7 +32,7 @@ export default function SiraLanding() {
       name: "SIRA - RETRAITE",
       title: "Planification Retraite Personnalisée",
       description: "Un agent IA spécialisé dans la préparation de votre avenir financier",
-      videoUrl: "/retraite.mp4?height=120&width=120",
+      videoUrl: "/retraite.mp4?height=400&width=300",
       color: "from-violet-500 to-purple-600",
       features: [
         "Analyse de votre fiche de paie",
@@ -47,7 +47,7 @@ export default function SiraLanding() {
       name: "SIRA - GLOBAL",
       title: "Assistant Visuel Temps Réel",
       description: "Un agent IA pour l'assistance contextuelle instantanée",
-      videoUrl: "/global.mp4?height=120&width=120",
+      videoUrl: "/global.mp4?height=400&width=300",
       color: "from-orange-500 to-red-500",
       features: [
         "Partage d'écran en temps réel",

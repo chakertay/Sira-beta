@@ -43,8 +43,8 @@ export default function SiraLanding() {
       link : "https://agent-3n6a.onrender.com"
     },
     {
-      id: "global",
-      name: "SIRA - GLOBAL",
+      id: "tuteur",
+      name: "SIRA - TUTEUR",
       title: "Assistant Visuel Temps Réel",
       description: "Un agent IA pour l'assistance contextuelle instantanée",
       videoUrl: "/global.mp4?height=400&width=300",

@@ -57,6 +57,21 @@ export default function SiraLanding() {
       ],
       link : "https://ai-tutor-kappa.vercel.app/"
     },
+        {
+      id: "commercial",
+      name: "SIRA - COMMERCIAL",
+      title: "Conseil d'affaires pour les commerçants",
+      description: "Un agent IA spécialisé dans la conseil des affaires",
+      videoUrl: "/global.mp4?height=400&width=300",
+      color: "from-orange-500 to-red-500",
+      features: [
+        "Analyse de situation de votre entreprise",
+        "évaluation des objectifs",
+        "Recommandations stratégiques",
+        "Rapport d'évaluation détaillé",
+      ],
+      link : "https://com-agent-29o7.onrender.com"
+    },
   ]
 
   const toggleListening = () => {

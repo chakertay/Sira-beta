@@ -225,7 +225,7 @@ export default function SiraLanding() {
                       onClick={() => window.open(agent.link, "_blank")}
                     >
                       <Mic className="mr-2 w-4 h-4" />
-                      Parler avec {agent.name.split(" - ")[1]}
+                      Parler avec SIRA  {agent.name.split(" - ")[1]}
                     </Button>
                   </CardContent>
                 </Card>

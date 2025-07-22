@@ -13,7 +13,7 @@ export default function SiraLanding() {
 
   const agents = [
     {
-      id: "emploi",
+      id: "sira - emploi",
       name: "SIRA - EMPLOI",
       title: "Analyse de Carrière Intelligente",
       description: "Un agent IA dédié à l'optimisation de votre parcours professionnel",
@@ -28,7 +28,7 @@ export default function SiraLanding() {
       link : "https://ai-gen-qq48.onrender.com"
     },
     {
-      id: "retraite",
+      id: "sira - retraite",
       name: "SIRA - RETRAITE",
       title: "Planification Retraite Personnalisée",
       description: "Un agent IA spécialisé dans la préparation de votre avenir financier",
@@ -43,7 +43,7 @@ export default function SiraLanding() {
       link : "https://agent-3n6a.onrender.com"
     },
     {
-      id: "tuteur",
+      id: "sira - tuteur",
       name: "SIRA - TUTEUR",
       title: "Assistant Visuel Temps Réel",
       description: "Un agent IA pour l'assistance contextuelle instantanée",
@@ -58,15 +58,15 @@ export default function SiraLanding() {
       link : "https://ai-tutor-kappa.vercel.app/"
     },
         {
-      id: "commercial",
+      id: "sira - commercial",
       name: "SIRA - COMMERCIAL",
-      title: "Conseil d'affaires pour les commerçants",
-      description: "Un agent IA spécialisé dans la conseil des affaires",
+      title: "Conseil en affaires pour les commerçants",
+      description: "Un agent IA spécialisé en conseil d'affaires.",
       videoUrl: "/global.mp4?height=400&width=300",
       color: "from-orange-500 to-red-500",
       features: [
-        "Analyse de situation de votre entreprise",
-        "évaluation des objectifs",
+        "Analyse de la situation de votre entreprise",
+        "Évaluation des objectifs",
         "Recommandations stratégiques",
         "Rapport d'évaluation détaillé",
       ],

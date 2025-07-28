@@ -348,14 +348,9 @@ export default function SiraLanding() {
                         loop
                         playsInline
                         preload="metadata"
-                        poster={agent.videoUrl}
+                        poster={agent.videofallback}
                       >
                         <source src={agent.videoUrl} type="video/mp4" />
-                        <img
-                          src={agent.videoUrl || agent.videofallback}
-                          alt={`${agent.name} animation`}
-                          className="w-full h-full object-cover rounded-lg"
-                        />
                       </video>
                     </div>
                     <CardTitle className="text-lg font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors duration-300">

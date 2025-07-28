@@ -29,7 +29,8 @@ export default function SiraLanding() {
   const agents = [
     {
       id: "sira - emploi",
-      name: "SIRA - EMPLOI",
+      name: "SIRA COACH - EMPLOI",
+      nom: "Clara",
       title: "Analyse de Carrière Intelligente",
       description: "Un agent IA dédié à l'optimisation de votre parcours professionnel",
       videoUrl: "/emploi.mp4?height=400&width=300",
@@ -45,7 +46,8 @@ export default function SiraLanding() {
     },
     {
       id: "sira - retraite",
-      name: "SIRA - RETRAITE",
+      name: "SIRA COACH - RETRAITE",
+      nom: "Richard",
       title: "Planification Retraite Personnalisée",
       description: "Un agent IA spécialisé dans la préparation de votre avenir financier",
       videoUrl: "/retraite.mp4?height=400&width=300",
@@ -61,7 +63,8 @@ export default function SiraLanding() {
     },
     {
       id: "sira - tuteur",
-      name: "SIRA - TUTEUR",
+      name: "SIRA COACH - TUTEUR",
+      nom: "Alexis",
       title: "Assistant Visuel Temps Réel",
       description: "Un agent IA pour l'assistance contextuelle instantanée",
       videoUrl: "/global.mp4?height=400&width=300",
@@ -77,7 +80,8 @@ export default function SiraLanding() {
     },
     {
       id: "sira - commercial",
-      name: "SIRA - COMMERCIAL",
+      name: "SIRA COACH - COMMERCIAL",
+      nom: "Marianne",
       title: "Conseil en affaires pour les commerçants",
       description: "Un agent IA spécialisé en conseil d'affaires.",
       videoUrl: "/commercial.mp4?height=400&width=300",
@@ -379,7 +383,7 @@ export default function SiraLanding() {
                       onClick={() => window.open(agent.link, "_blank")}
                     >
                       <Mic className="mr-2 w-4 h-4 group-hover/btn:animate-pulse" />
-                      Parler avec {agent.name.split(" - ")[1]}
+                      Parler avec {agent.nom}
                     </Button>
                   </CardContent>
                 </Card>

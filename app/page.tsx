@@ -33,6 +33,7 @@ export default function SiraLanding() {
       title: "Analyse de Carrière Intelligente",
       description: "Un agent IA dédié à l'optimisation de votre parcours professionnel",
       videoUrl: "/emploi.mp4?height=400&width=300",
+      videofallback:"/emploifallback.png",
       color: "from-emerald-500 to-teal-600",
       features: [
         "Analyse complète de votre CV",
@@ -48,6 +49,7 @@ export default function SiraLanding() {
       title: "Planification Retraite Personnalisée",
       description: "Un agent IA spécialisé dans la préparation de votre avenir financier",
       videoUrl: "/retraite.mp4?height=400&width=300",
+      videofallback:"/retraitefallback.png",
       color: "from-violet-500 to-purple-600",
       features: [
         "Analyse de votre fiche de paie",
@@ -63,6 +65,7 @@ export default function SiraLanding() {
       title: "Assistant Visuel Temps Réel",
       description: "Un agent IA pour l'assistance contextuelle instantanée",
       videoUrl: "/global.mp4?height=400&width=300",
+      videofallback:"/tuteurfallback.png",
       color: "from-orange-500 to-red-500",
       features: [
         "Partage d'écran en temps réel",
@@ -77,7 +80,8 @@ export default function SiraLanding() {
       name: "SIRA - COMMERCIAL",
       title: "Conseil en affaires pour les commerçants",
       description: "Un agent IA spécialisé en conseil d'affaires.",
-      videoUrl: "/global.mp4?height=400&width=300",
+      videoUrl: "/commercial.mp4?height=400&width=300",
+      videofallback:"/commercialfallback.png",
       color: "from-blue-500 to-indigo-600",
       features: [
         "Analyse de la situation de votre entreprise",
@@ -121,12 +125,12 @@ export default function SiraLanding() {
   ]
 
   const trustLogos = [
-    { name: "Microsoft", logo: "🏢" },
-    { name: "Google", logo: "🔍" },
-    { name: "Amazon", logo: "📦" },
-    { name: "IBM", logo: "💼" },
-    { name: "Oracle", logo: "🗄️" },
-    { name: "Salesforce", logo: "☁️" },
+    { name: "Microsoft", logo: "" },
+    { name: "Google", logo: "" },
+    { name: "Amazon", logo: "" },
+    { name: "IBM", logo: "" },
+    { name: "Oracle", logo: "" },
+    { name: "Salesforce", logo: "" },
   ]
 
   const toggleListening = () => {
@@ -348,7 +352,7 @@ export default function SiraLanding() {
                       >
                         <source src={agent.videoUrl} type="video/mp4" />
                         <img
-                          src={agent.videoUrl || "/placeholder.svg"}
+                          src={agent.videoUrl || agent.videofallback}
                           alt={`${agent.name} animation`}
                           className="w-full h-full object-cover rounded-lg"
                         />

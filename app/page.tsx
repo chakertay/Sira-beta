@@ -331,7 +331,7 @@ export default function SiraLanding() {
                   <div className={`h-2 bg-gradient-to-r ${agent.color} group-hover:h-3 transition-all duration-300`} />
                   <CardHeader className="text-center pb-4">
                     <div
-                      className={`w-full h-32 mx-auto mb-4 rounded-lg overflow-hidden group-hover:scale-110 transition-transform duration-500 shadow-lg`}
+                      className={`w-full h-48 mx-auto mb-4 rounded-lg overflow-hidden group-hover:scale-110 transition-transform duration-500 shadow-lg`}
                       onMouseEnter={() => handleVideoHover(agent.id, true)}
                       onMouseLeave={() => handleVideoHover(agent.id, false)}
                     >
